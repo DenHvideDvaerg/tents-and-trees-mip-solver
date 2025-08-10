@@ -30,7 +30,7 @@ class TentsAndTreesSolver:
             ValueError: If puzzle is invalid or solver creation fails
         """
         if not isinstance(puzzle, TentsAndTreesPuzzle):
-            raise ValueError("puzzle must be a TentsAndTreesPuzzle instance")
+            raise ValueError("Puzzle must be a TentsAndTreesPuzzle instance")
         
         self.puzzle = puzzle
         self.solver = pywraplp.Solver.CreateSolver(solver_type)
@@ -43,7 +43,7 @@ class TentsAndTreesSolver:
         
         # Validate that we have tent candidates
         if not self.tent_vars:
-            raise ValueError("No valid tent positions found - puzzle may be unsolvable")
+            raise ValueError("No valid tent positions found")
 
         # Add constraints
         self._add_all_constraints()
