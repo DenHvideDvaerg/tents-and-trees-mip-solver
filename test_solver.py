@@ -65,7 +65,7 @@ class TestTentsAndTreesSolverSolving:
         # Create a puzzle where sums don't match
         puzzle = TentsAndTreesPuzzle(
             row_sums=[2, 0], 
-            col_sums=[1, 0], 
+            col_sums=[2, 0], 
             tree_positions={(0, 0)}
         )
         solver = TentsAndTreesSolver(puzzle)

@@ -40,9 +40,12 @@ class TentsAndTreesPuzzle:
         self.num_rows = len(row_sums)
         self.num_cols = len(col_sums)
         
+        if sum(row_sums) != sum(col_sums):
+            raise ValueError("Total row sums must equal total column sums")
+
         # Validate tree positions
         for row, col in tree_positions:
-            if not self.is_valid_position(row, col):
+            if not self.is_within_bounds(row, col):
                 raise ValueError(f"Tree position ({row}, {col}) is outside puzzle boundaries")
         
         self.row_sums = row_sums
@@ -113,7 +116,7 @@ class TentsAndTreesPuzzle:
             self._tree_groups = groups
         return self._tree_groups
     
-    def is_valid_position(self, row: int, col: int) -> bool:
+    def is_within_bounds(self, row: int, col: int) -> bool:
         """Check if the given position is within puzzle boundaries."""
         return 0 <= row < self.num_rows and 0 <= col < self.num_cols
     
@@ -130,7 +133,7 @@ class TentsAndTreesPuzzle:
         """
         row, col = position
         new_row, new_col = row + offset[0], col + offset[1]
-        return (new_row, new_col) if self.is_valid_position(new_row, new_col) else None
+        return (new_row, new_col) if self.is_within_bounds(new_row, new_col) else None
     
     def get_tiles_by_offsets(self, position: Tuple[int, int], offsets: List[Tuple[int, int]]) -> Set[Tuple[int, int]]:
         """

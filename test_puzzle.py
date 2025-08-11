@@ -39,6 +39,11 @@ class TestTentsAndTreesPuzzleInitialization:
         with pytest.raises(ValueError, match="Row and column sums must be non-negative"):
             TentsAndTreesPuzzle([1, 2], [1, -2], {(0, 0)})
     
+    def test_unequal_row_col_sums_raises_error(self):
+        """Test that unequal total row and column sums raise ValueError."""
+        with pytest.raises(ValueError, match="Total row sums must equal total column sums"):
+            TentsAndTreesPuzzle([1, 2], [1, 1], {(0, 0)})
+
     def test_tree_outside_boundaries_raises_error(self):
         """Test that tree positions outside puzzle boundaries raise ValueError."""
         with pytest.raises(ValueError, match="Tree position \\(3, 0\\) is outside puzzle boundaries"):
@@ -122,18 +127,18 @@ class TestTentsAndTreesPuzzleSpatialMethods:
             tree_positions={(1, 1)}  # Center tree
         )
     
-    def test_is_valid_position(self, puzzle_3x3):
+    def test_is_within_bounds(self, puzzle_3x3):
         """Test position validation."""
         # Test valid positions
-        assert puzzle_3x3.is_valid_position(0, 0)
-        assert puzzle_3x3.is_valid_position(2, 2)
-        assert puzzle_3x3.is_valid_position(1, 1)
-        
+        assert puzzle_3x3.is_within_bounds(0, 0)
+        assert puzzle_3x3.is_within_bounds(2, 2)
+        assert puzzle_3x3.is_within_bounds(1, 1)
+
         # Test invalid positions
-        assert not puzzle_3x3.is_valid_position(-1, 0)
-        assert not puzzle_3x3.is_valid_position(0, -1)
-        assert not puzzle_3x3.is_valid_position(3, 0)
-        assert not puzzle_3x3.is_valid_position(0, 3)
+        assert not puzzle_3x3.is_within_bounds(-1, 0)
+        assert not puzzle_3x3.is_within_bounds(0, -1)
+        assert not puzzle_3x3.is_within_bounds(3, 0)
+        assert not puzzle_3x3.is_within_bounds(0, 3)
     
     def test_get_adjacent_tiles(self, puzzle_3x3):
         """Test getting adjacent tiles."""
