@@ -121,7 +121,7 @@ class TentsAndTreesSolver:
                 constraint_name = f'tree_group_{i}'
                 self.solver.Add(sum(group_vars) == len(tree_group), constraint_name)
     
-    def _add_unshared_tree_constraints(self):
+    def _add_unshared_tile_constraints(self):
         """
         For trees with unshared adjacent tiles (tiles not adjacent to other trees 
         in the same group), limit to at most one tent in those unshared positions.
@@ -144,7 +144,7 @@ class TentsAndTreesSolver:
         self._add_row_sum_constraints()
         self._add_col_sum_constraints()
         self._add_tree_group_constraints()
-        self._add_unshared_tree_constraints()
+        self._add_unshared_tile_constraints()
     
     def solve(self, verbose: bool = False) -> Optional[Set[Tuple[int, int]]]:
         """
