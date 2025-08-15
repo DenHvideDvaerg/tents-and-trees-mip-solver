@@ -116,19 +116,11 @@ pytest --cov=puzzle --cov=solver # Run with coverage
 
 ## Algorithm Details
 
-The solver models the puzzle as a **Mixed Integer Programming** problem with:
+The solver models the puzzle as a **Mixed Integer Programming (MIP)** problem using binary variables and linear constraints to enforce all Tents and Trees rules.
 
-### Variables
-- **Binary variables** for each potential tent position
+For a complete mathematical formulation see the **[Mathematical Model Documentation](model.md)**.
 
-### Constraints
-1. **Row sum constraints:** Each row has the required number of tents
-2. **Column sum constraints:** Each column has the required number of tents  
-3. **Tree adjacency:** Each tree has exactly one adjacent tent
-4. **Tent isolation:** No tent can be adjacent to another tent
-5. **Valid positions:** Tents only in positions adjacent to trees
-
-The solver uses **Google OR-Tools** with the SCIP optimizer for efficient constraint solving.
+The model is defined using **Google OR-Tools** and defaults to using SCIP as the backend solver.
 
 ## License
 
