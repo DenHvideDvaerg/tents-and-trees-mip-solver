@@ -3,9 +3,7 @@
 A Tents and Trees puzzle solver using mathematical programming.
 
 <!-- TODO: 
-- Verify example and output (output is definitely wrong...)
 - Add badges
-- Test python versions (using github actions?)
 - Add link to streamlit app (probably after publishing)
 - A description of the model (whole Algorithm Details section needs to be reworked, Maybe have a new md file and link to it?)
 - Probably delete Features section?
@@ -37,7 +35,7 @@ pip install tents-and-trees-mip-solver
 
 ## Requirements
 
-- Python 3.13+
+- Python 3.9+
 - Google OR-Tools
 - pytest (for testing)
 
