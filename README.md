@@ -1,6 +1,15 @@
 # Tents and Trees MIP Solver
 
-A Python implementation of a mathematical programming solver for **Tents and Trees** puzzles using Google OR-Tools.
+A Tents and Trees puzzle solver using mathematical programming.
+
+<!-- TODO: 
+- Verify example and output (output is definitely wrong...)
+- Add badges
+- Test python versions (using github actions?)
+- Add link to streamlit app (probably after publishing)
+- A description of the model (whole Algorithm Details section needs to be reworked, Maybe have a new md file and link to it?)
+- Probably delete Features section?
+ -->
 
 ## Overview
 
@@ -11,27 +20,26 @@ Tents and Trees is a logic puzzle where you must place tents on a grid according
 - **Tents cannot touch each other** (even diagonally)
 - **Row and column constraints** specify how many tents must be in each row/column
 
-This solver models the puzzle as a **Mixed Integer Programming (MIP)** problem and uses constraint programming to find solutions.
+This solver models the puzzle as a **Mixed Integer Programming (MIP)** problem to find solutions.
 
-## Features
+<!-- ## Features
 
 - 🧩 **Complete puzzle modeling** with all Tents and Trees rules
 - ⚡ **Fast solving** using Google OR-Tools optimization
 - ✅ **Solution validation** to verify correctness
-- 🎯 **Handles complex scenarios** including multiple tree groups
+- 🎯 **Handles complex scenarios** including multiple tree groups -->
 
 ## Installation
 
-1. **Clone the repository:**
 ```bash
-git clone https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver.git
-cd tents-and-trees-mip-solver
+pip install tents-and-trees-mip-solver
 ```
 
-2. **Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
+## Requirements
+
+- Python 3.13+
+- Google OR-Tools
+- pytest (for testing)
 
 ## Usage
 
@@ -67,36 +75,36 @@ if solution:
     
     # Get solver information
     info = solver.get_solver_info()
-    print(f"\nSolver used {info['variables']} variables and {info['constraints']} constraints")
+    print(f"\nSolver consists of {info['variables']} variables and {info['constraints']} constraints")
 else:
     print("No solution exists")
 ```
 
-### Example Output
+### Output
 
 ```
 Puzzle:
-    2 0 1 1 1
-1 | _ T _ T _
-1 | _ _ _ _ _
-0 | _ _ _ _ _
-2 | T T _ _ _
-1 | _ _ _ _ T
+  2 0 1 1 1
+1 _ _ _ _ _
+1 _ T _ T _
+0 _ _ _ _ _
+2 T T _ _ _
+1 _ _ _ _ T
 
-Solution found! Tent positions: {(0, 0), (0, 3), (1, 0), (3, 2), (4, 3)}
+Solution found! Tent positions: {(4, 0), (3, 4), (0, 3), (1, 0), (3, 2)}
 Solution is valid: True
 
 Solved puzzle:
-    2 0 1 1 1
-1 | X T _ X _
-1 | X _ _ _ _
-0 | _ _ _ _ _
-2 | T T X _ _
-1 | _ _ _ X T
+  2 0 1 1 1
+1 _ _ _ @ _
+1 @ T _ T _
+0 _ _ _ _ _
+2 T T @ _ @
+1 @ _ _ _ T
 
-Solver used 10 variables and 15 constraints
+Model consists of 13 variables and 36 constraints
 
-Legend: T=Tree, X=Tent, _=Empty
+Legend: T=Tree, @=Tent, _=Empty
 ```
 
 ## Testing
@@ -123,12 +131,6 @@ The solver models the puzzle as a **Mixed Integer Programming** problem with:
 5. **Valid positions:** Tents only in positions adjacent to trees
 
 The solver uses **Google OR-Tools** with the SCIP optimizer for efficient constraint solving.
-
-## Requirements
-
-- Python 3.8+
-- Google OR-Tools
-- pytest (for testing)
 
 ## License
 
