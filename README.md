@@ -65,7 +65,7 @@ if solution:
     
     # Get solver information
     info = solver.get_solver_info()
-    print(f"\nSolver consists of {info['variables']} variables and {info['constraints']} constraints")
+    print(f"\nModel consists of {info['variables']} variables and {info['constraints']} constraints")
 else:
     print("No solution exists")
 ```
@@ -108,11 +108,21 @@ pytest --cov=puzzle --cov=solver # Run with coverage
 
 ## Algorithm Details
 
-The solver models the puzzle as a **Mixed Integer Programming (MIP)** problem using binary variables and linear constraints to enforce all Tents and Trees rules.
+The solver uses **Mixed Integer Programming (MIP)** to model the puzzle with:
 
-For a complete mathematical formulation see the **[Mathematical Model Documentation](model.md)**.
+- **Binary decision variables** for each potential tent position
+- **Seven constraint types** ensuring all puzzle rules are satisfied:
+  1. Tent-tree balance (equal counts)
+  2. Tree adjacency (each tree has ≥1 adjacent tent)  
+  3. Tent separation (no adjacent tents)
+  4. Row sum constraints
+  5. Column sum constraints
+  6. Tree group balance constraints
+  7. Unshared tile constraints
 
-The model is defined using **Google OR-Tools** and defaults to using SCIP as the backend solver.
+**Solver Backend**: Uses Google OR-Tools with SCIP optimizer by default.
+
+**Mathematical Model**: See the complete formulation in **[Mathematical Model Documentation](model.md)**.
 
 ## License
 
