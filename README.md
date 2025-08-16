@@ -1,5 +1,11 @@
 # Tents and Trees MIP Solver
 
+[![CI](https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/actions/workflows/CI.yml/badge.svg)](https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/actions/workflows/CI.yml)
+<!-- [![Code Coverage](https://img.shields.io/codecov/c/github/DenHvideDvaerg/tents-and-trees-mip-solver?color=blue)](https://codecov.io/gh/DenHvideDvaerg/tents-and-trees-mip-solver) -->
+<!-- [![PyPI version](https://img.shields.io/pypi/v/tents-and-trees-mip-solver?color=green)](https://pypi.org/project/tents-and-trees-mip-solver/) -->
+<!-- [![Python](https://img.shields.io/pypi/pyversions/tents-and-trees-mip-solver?color=blue)](https://pypi.org/project/tents-and-trees-mip-solver/) -->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Tents and Trees puzzle solver using mathematical programming.
 
 ## Overview
