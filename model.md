@@ -102,7 +102,7 @@ Each column must contain exactly the required number of tents:
 Σ_{i: (i,j) ∈ P} x_{i,j} = cⱼ    ∀j ∈ J
 ```
 
-### 6. Tree Group Constraints
+### 6. Tree Group Balance Constraints
 For each group of connected trees, the number of tents in their combined adjacent area equals the group size:
 
 ```
@@ -116,7 +116,42 @@ For trees with unshared adjacent tiles, limit to at most one tent in unshared po
 Σ_{(k,l) ∈ U(t,Gₖ)} x_{k,l} ≤ 1    ∀t ∈ Gₖ, ∀Gₖ ∈ G, |U(t,Gₖ)| > 1
 ```
 
+## Why Tree Group and Unshared Tile Constraints Are Necessary
 
+The basic constraints (1-5) are not sufficient to ensure valid Tents and Trees solutions. Without constraints 6 and 7, the model can produce solutions that violate fundamental puzzle rules:
+
+### Problem: Invalid Solutions Without Advanced Constraints
+
+When using only constraints 1-5, valid solutions to the model may exist where:
+- **One tree has multiple adjacent tents** (violating the one-tent-per-tree rule)
+- **One tent is shared between multiple trees** (violating proper tent-tree pairing)
+
+![Invalid Solution Example](images/invalidSolution.png)
+
+### Solution: Two Complementary Constraint Types
+
+#### Tree Group Balance Constraints (Constraint 6)
+These constraints ensure that each group of connected trees has exactly the right number of tents in their combined adjacent area. This prevents both:
+- Trees having too many tents
+- Tents being inappropriately shared between trees
+
+![Tree Group Balance Example](images/treeGroupBalance.png)
+
+#### Unshared Tile Constraints (Constraint 7)
+These constraints prevent individual trees from claiming multiple tents in areas not shared with other trees in their group:
+
+![Unshared Tree Group Examples](images/unsharedTiles.png)
+
+### Constraint Redundancy
+
+Adding either constraint 6 or 7 individually results in the model producing the correct solution for the example shown above.
+
+However, the Tree Group Balance Constraint appears more powerful, as it directly addresses the problems in both problematic tree groups, whereas the Unshared Tile Constraint only affects one of the groups.
+
+Both constraint types are retained in the formulation because:
+- Unshared Tile Constraints never invalidate correct solutions
+- They may help in edge cases not yet fully analyzed
+- They could improve solver efficiency through additional constraint propagation
 
 ## Complete MIP Formulation
 
@@ -142,7 +177,7 @@ minimize 0
 
 Σ_{i: (i,j) ∈ P} x_{i,j} = cⱼ                                   ∀j ∈ J         (Column sums)
 
-Σ_{(k,l) ∈ (⋃_{t∈Gₖ} A(t)) ∩ P} x_{k,l} = |Gₖ|                  ∀Gₖ ∈ G        (Tree groups)
+Σ_{(k,l) ∈ (⋃_{t∈Gₖ} A(t)) ∩ P} x_{k,l} = |Gₖ|                  ∀Gₖ ∈ G        (Tree group balance)
 
 Σ_{(k,l) ∈ U(t,Gₖ)} x_{k,l} ≤ 1                                 ∀t ∈ Gₖ, ∀Gₖ ∈ G, |U(t,Gₖ)| > 1  (Unshared trees)
 
