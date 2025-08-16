@@ -2,13 +2,6 @@
 
 A Tents and Trees puzzle solver using mathematical programming.
 
-<!-- TODO: 
-- Add badges
-- Add link to streamlit app (probably after publishing)
-- A description of the model (whole Algorithm Details section needs to be reworked, Maybe have a new md file and link to it?)
-- Probably delete Features section?
- -->
-
 ## Overview
 
 Tents and Trees is a logic puzzle where you must place tents on a grid according to specific rules:
@@ -19,13 +12,6 @@ Tents and Trees is a logic puzzle where you must place tents on a grid according
 - **Row and column constraints** specify how many tents must be in each row/column
 
 This solver models the puzzle as a **Mixed Integer Programming (MIP)** problem to find solutions.
-
-<!-- ## Features
-
-- 🧩 **Complete puzzle modeling** with all Tents and Trees rules
-- ⚡ **Fast solving** using Google OR-Tools optimization
-- ✅ **Solution validation** to verify correctness
-- 🎯 **Handles complex scenarios** including multiple tree groups -->
 
 ## Installation
 
