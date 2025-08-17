@@ -1,0 +1,27 @@
+[run]
+source = puzzle, solver
+omit = 
+    */tests/*
+    */test_*
+    setup.py
+    __pycache__/*
+    */site-packages/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if __name__ == "__main__":
+    pass
+    raise ImportError
+
+# Show missing lines in reports
+show_missing = True
+
+# Set precision for coverage reporting
+precision = 2
+
+[html]
+directory = htmlcov
