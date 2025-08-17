@@ -2,8 +2,8 @@
 
 [![CI](https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/actions/workflows/CI.yml/badge.svg)](https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/actions/workflows/CI.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/DenHvideDvaerg/tents-and-trees-mip-solver?color=blue)](https://codecov.io/gh/DenHvideDvaerg/tents-and-trees-mip-solver)
-<!-- [![PyPI version](https://img.shields.io/pypi/v/tents-and-trees-mip-solver?color=green)](https://pypi.org/project/tents-and-trees-mip-solver/) -->
-<!-- [![Python](https://img.shields.io/pypi/pyversions/tents-and-trees-mip-solver?color=blue)](https://pypi.org/project/tents-and-trees-mip-solver/) -->
+[![PyPI version](https://img.shields.io/pypi/v/tents-and-trees-mip-solver?color=green)](https://pypi.org/project/tents-and-trees-mip-solver/)
+[![Python](https://img.shields.io/pypi/pyversions/tents-and-trees-mip-solver?color=blue)](https://pypi.org/project/tents-and-trees-mip-solver/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Tents and Trees puzzle solver using mathematical programming.
@@ -18,6 +18,10 @@ Tents and Trees is a logic puzzle where you must place tents on a grid according
 - **Row and column constraints** specify how many tents must be in each row/column
 
 This solver models the puzzle as a **Mixed Integer Programming (MIP)** problem to find solutions.
+
+## Try It Online
+
+🚀 **[Interactive Dashboard](https://tents-and-trees-dashboard.streamlit.app/)** - Try the solver in your browser with a user-friendly interface built with Streamlit!
 
 ## Installation
 
