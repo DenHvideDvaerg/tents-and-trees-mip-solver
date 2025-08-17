@@ -1,0 +1,2 @@
+# Marker file for PEP 561.
+# The tents_and_trees_mip_solver package uses type hints.

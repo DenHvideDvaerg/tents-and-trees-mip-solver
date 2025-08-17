@@ -34,9 +34,14 @@ jobs:
         python -m pip install pytest pytest-cov coverage
         pip install -r requirements.txt
         
+    - name: Install package in development mode
+      run: |
+        pip install -e .
+      # This makes the package importable for testing while using the local source code
+        
     - name: Test with pytest
       run: |
-        pytest --cov=puzzle --cov=solver --cov-report=term --cov-report=xml
+        pytest tests/ --cov=tents_and_trees_mip_solver --cov-config=.coveragerc --cov-report=term --cov-report=xml --cov-report=html
         
     - name: Upload to Codecov
       uses: codecov/codecov-action@v4

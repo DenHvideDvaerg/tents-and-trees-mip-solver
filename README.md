@@ -34,8 +34,7 @@ pip install tents-and-trees-mip-solver
 ## Usage
 
 ```python
-from puzzle import TentsAndTreesPuzzle
-from solver import TentsAndTreesSolver
+from tents_and_trees_mip_solver import TentsAndTreesPuzzle, TentsAndTreesSolver
 
 # Define a puzzle
 puzzle = TentsAndTreesPuzzle(
@@ -122,7 +121,7 @@ The solver uses **Mixed Integer Programming (MIP)** to model the puzzle with:
 
 **Solver Backend**: Uses Google OR-Tools with SCIP optimizer by default.
 
-**Mathematical Model**: See the complete formulation in **[Mathematical Model Documentation](model.md)**.
+**Mathematical Model**: See the complete formulation in **[Mathematical Model Documentation](https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/blob/main/model.md)**.
 
 ## License
 

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tents-and-trees-mip-solver"
+version = "0.1.1"
+description = "A Tents and Trees puzzle solver using Mixed Integer Programming (MIP)"
+readme = "README.md"
+authors = [{name = "Rasmus Ørnstrup Mikkelsen"}]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment :: Puzzle Games",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+keywords = ["puzzle", "solver", "mixed-integer-programming", "optimization", "tents-and-trees"]
+requires-python = ">=3.9"
+dependencies = [
+    "ortools",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver"
+"Bug Reports" = "https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/issues"
+"Source" = "https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver"
+"Documentation" = "https://github.com/DenHvideDvaerg/tents-and-trees-mip-solver/blob/main/model.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tents_and_trees_mip_solver*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
