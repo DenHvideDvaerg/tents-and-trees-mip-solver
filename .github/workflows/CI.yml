@@ -1,5 +1,9 @@
 name: CI
 
+# Define the Python version for coverage reporting at the workflow level
+env:
+  COVERAGE_PYTHON_VERSION: '3.13'
+
 on:
   push:
     paths:
@@ -27,8 +31,17 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        python -m pip install pytest pytest-cov coverage
         pip install -r requirements.txt
         
     - name: Test with pytest
       run: |
-        pytest -v
+        pytest --cov=puzzle --cov=solver --cov-report=term --cov-report=xml
+        
+    - name: Upload to Codecov
+      uses: codecov/codecov-action@v4
+      if: matrix.python-version == env.COVERAGE_PYTHON_VERSION
+      with:
+        file: coverage.xml
+        token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: false
