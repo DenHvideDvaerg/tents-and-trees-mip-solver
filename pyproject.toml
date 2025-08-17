@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A Tents and Trees puzzle solver using Mixed Integer Programming (MIP)"
 readme = "README.md"
 authors = [{name = "Rasmus Ørnstrup Mikkelsen"}]
-license = {file = "LICENSE.txt"}
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",

@@ -3,3 +3,4 @@ __pycache__/
 .vscode/
 tents_and_trees_mip_solver.egg-info/
 dist/
+build/
