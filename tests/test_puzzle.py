@@ -1,5 +1,5 @@
 import pytest
-from puzzle import TentsAndTreesPuzzle
+from tents_and_trees_mip_solver import TentsAndTreesPuzzle
 
 
 class TestTentsAndTreesPuzzleInitialization:

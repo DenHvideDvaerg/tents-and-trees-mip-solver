@@ -6,8 +6,7 @@ to find solutions to Tents and Trees puzzles.
 """
 
 import pytest
-from puzzle import TentsAndTreesPuzzle
-from solver import TentsAndTreesSolver
+from tents_and_trees_mip_solver import TentsAndTreesPuzzle, TentsAndTreesSolver
 
 
 class TestTentsAndTreesSolverInitialization:

@@ -7,7 +7,7 @@ to solve Tents and Trees puzzles through mathematical programming.
 
 from typing import Dict, Set, Tuple, Optional
 from ortools.linear_solver import pywraplp
-from puzzle import TentsAndTreesPuzzle
+from .puzzle import TentsAndTreesPuzzle
 
 
 class TentsAndTreesSolver:
