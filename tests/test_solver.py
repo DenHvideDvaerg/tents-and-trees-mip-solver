@@ -1,10 +1,3 @@
-"""
-Simplified test suite for the TentsAndTreesSolver class.
-
-This module tests the mathematical programming solver that uses OR-Tools
-to find solutions to Tents and Trees puzzles.
-"""
-
 import pytest
 from tents_and_trees_mip_solver import TentsAndTreesPuzzle, TentsAndTreesSolver
 
@@ -91,6 +84,3 @@ class TestTentsAndTreesSolverSolving:
         is_valid, errors = puzzle.validate_solution(solution)
         assert is_valid, f"Solution is invalid: {errors}"
 
-
-if __name__ == "__main__":
-    pytest.main([__file__, "-v"])
