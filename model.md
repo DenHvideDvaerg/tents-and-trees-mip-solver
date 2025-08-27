@@ -57,7 +57,7 @@ U(t,G) = A(t) \ (⋃_{t'∈G,t'≠t} A(t) ∩ A(t')) \ G
 
 ## Objective Function
 
-This is a constraint satisfaction problem with a tent-tree balance constraint:
+This is a constraint satisfaction problem where the goal is to find a feasible solution that satisfies all constraints without optimizing any particular objective. Therefore, we define the objective function as:
 
 ```
 minimize 0
