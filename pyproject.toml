@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tents-and-trees-mip-solver"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Tents and Trees puzzle solver using Mixed Integer Programming (MIP)"
 readme = "README.md"
 authors = [{name = "Rasmus Ørnstrup Mikkelsen"}]
