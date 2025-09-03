@@ -183,12 +183,3 @@ minimize 0
 
 x_{i,j} ∈ {0,1}                                                 ∀(i,j) ∈ P     (Binary variables)
 ```
-
-## Implementation Notes
-
-- **Mathematical indexing**: This formulation uses 1-based indexing for mathematical clarity (rows 1 to m, columns 1 to n)
-- **Implementation mapping**: The actual Python implementation uses 0-based indexing (rows 0 to m-1, columns 0 to n-1)
-- **Tree grouping**: Trees are grouped using depth-first search on cross-pattern connectivity  
-- **Constraint naming**: Each constraint type has systematic naming in the solver for easy identification
-- **Big-M formulation**: Tent separation uses the actual count of surrounding candidates rather than a fixed M
-- **Solver type**: Defaults to using SCIP optimizer through OR-Tools
